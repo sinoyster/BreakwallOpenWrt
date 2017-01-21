@@ -1,0 +1,5 @@
+kmod-usb-net
+kmod-usb-net-rndis
+kmod-usb-net-cdc-ether
+#usbutils
+#udev
