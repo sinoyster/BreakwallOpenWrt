@@ -1,0 +1,6 @@
+kmod-mii
+kmod-usb-net
+kmod-usb-net-cdc-ether
+kmod-usb-net-rndis
+usb-modeswitch
+libusb-1.0
