@@ -1,0 +1,19 @@
+config wifi-device  radio0
+	option type     mac80211
+	option channel  11
+	option hwmode	11g
+	option path	'platform/ar933x_wmac'
+	option htmode	HT40
+	option noscan 1
+	option txpower '18'
+	option country 'CN'
+
+
+config wifi-iface
+	option device   radio0
+	option network  lan
+	option mode     ap
+	option ssid     OpenWrt_703b
+	option encryption 'psk-mixed'
+	option key 'ccb95533'
+
