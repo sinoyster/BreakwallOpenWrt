@@ -25,6 +25,7 @@ export RANLIB=mips-openwrt-linux-uclibc-ranlib
 ###输入参数 build.sh  PROFILE_SUBPROFILE 
 ###如: build.sh TLWR703_
 #TLWR703_8M
+#build.sh TLWR703_gfwmini
 PROFILE_TARGET=$1
 #PROFILE_TARGET=703_8M
 
@@ -38,7 +39,8 @@ PACKAGES_FN=$PROFILE_TARGET/packages.list
 
 echo $PACKAGES_FN 
 
-PROFILE_PACKAGES=`cat $PACKAGES_FN`
+#PROFILE_PACKAGES=`grep -v '^#' $PACKAGES_FN`
+PROFILE_PACKAGES=`grep -v '^#' $PACKAGES_FN | sed 'H;1h;$!d;x;s/\n/ /g'`
 
 echo $PROFILE_PACKAGES
 
@@ -47,10 +49,12 @@ PROFILE_FILES="$PROFILE_TARGET/files"
 echo $PROFILE_FILES
 
 
-#make CC=mipsel-openwrt-linux-gcc LD=mipsel-openwrt-linux-ld  # BIN_DIR=bin_$PROFILE_TARGET
+make CC=mipsel-openwrt-linux-gcc LD=mipsel-openwrt-linux-ld  
 
 #echo make image PROFILE=$PROFILE_NAME PACKAGES=\"$PROFILE_PACKAGES\"  FILES=$PROFILE_FILES  
-#make image PROFILE=$PROFILE_NAME   FILES=\"$PROFILE_FILES\"  PACKAGES="$PROFILE_PACKAGES" 
+make image PROFILE=$PROFILE_NAME   FILES=\"$PROFILE_FILES\"  PACKAGES="$PROFILE_PACKAGES" 
 
-#mv bin/* $PROFILE_TARGET/bin/
+#rm -rf "$PROFILE_TARGET/bin/*"
+
+#mv bin/* "$PROFILE_TARGET/bin/"
 

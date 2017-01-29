@@ -1,4 +1,5 @@
-ddns-scripts
+#最小系统包
+#ddns-scripts
 -dnsmasq
 dnsmasq-full
 hostapd-common
@@ -45,7 +46,7 @@ libubus-lua
 libuci
 libuci-lua
 libxtables
-logd
+#logd
 lua
 luci
 luci-app-firewall
@@ -65,6 +66,9 @@ uhttpd-mod-ubus
 usign
 wpad-mini
 
+shadowsocksr-libev-gfwlist
+
+#E353 3g网卡支持包
 kmod-mii
 kmod-usb-net
 kmod-usb-net-cdc-ether
